@@ -5,7 +5,8 @@ import java.awt.event.ActionListener;
 
 public class Frame {
 
-    public void frame() {
+    public static void main(String[] args) {
+        // Tworzenie nowego okna
         JFrame okno = new JFrame("Moja Aplikacja");
 
         // Ustawienie operacji zamknięcia
@@ -16,12 +17,32 @@ public class Frame {
         okno.getContentPane().add(etykieta, BorderLayout.CENTER);
 
         // Ustawienie rozmiaru okna
-        okno.setSize(1200, 1000);
+        okno.setSize(300, 200);
 
         // Wyświetlenie okna
         okno.setVisible(true);
 
+        // Dodanie przycisku do okna
+        JButton przycisk = stworzPrzycisk();
+        okno.getContentPane().add(przycisk, BorderLayout.SOUTH);
+    }
 
+
+
+    // Metoda do tworzenia przycisku
+    private static JButton stworzPrzycisk() {
+        // Tworzenie przycisku
+        JButton przycisk = new JButton("Book a holiday");
+
+        // Dodanie akcji do przycisku
+        przycisk.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                // Kod do wykonania po naciśnięciu przycisku
+                System.out.println("Przycisk 'Book a holiday' został naciśnięty!");
+            }
+        });
+
+        return przycisk;
     }
 
 }
